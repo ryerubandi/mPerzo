@@ -1,10 +1,12 @@
 Ext.Loader.require(['Ext.util.DelayedTask','Perzo.view.MenuItem','Ext.MessageBox']);
 Ext.define('Perzo.controller.LandingPage',{
 	extend:'Ext.app.Controller',
+	start:true,
 	init: function() { 
 			
 	},
 	config:{
+		
 		requires:['Perzo.view.Main','Perzo.view.DisplaySignUp','Perzo.view.Login','Perzo.view.UserSignUp'
 		,'Perzo.view.Mosaic',,'Perzo.view.Topics','Perzo.view.SlideNavigation'
 		,'Perzo.view.TopicsContainer'],
@@ -74,11 +76,17 @@ Ext.define('Perzo.controller.LandingPage',{
 
 
 	},
+	stopCarsousel:function(){
+		this.start = false;
+	},
 	startCarousel:function(carousel){
+
 		this.startRotatingCarouselItems();
 	},
+	
 	startRotatingCarouselItems:function(){
-		var view = this.getPerzoCarouselView();
+		if(this.start == true){
+			var view = this.getPerzoCarouselView();
 		Ext.create('Ext.util.DelayedTask',function() {
                             if (view.getActiveIndex() == view.items.length - 1) {
                                 view.animateActiveItem(0, {duration:350, type:'slide', direction:'left'});
@@ -88,21 +96,29 @@ Ext.define('Perzo.controller.LandingPage',{
                             }
                              this.startCarousel();
                         },this).delay(4000);
+		}
+		else return;
+		
 	},
 	gotoLoginPage:function(){
+		this.stopCarsousel();
 		this.getLandingPageView().setActiveItem(1);
 	}
 
 	,
 	gotoSignupPage:function(btn){
+		this.stopCarsousel();
 		this.getLandingPageView().setActiveItem(2);
 	},
 	goBackToLandingPage:function(){
 		
 		this.getLandingPageView().animateActiveItem(0,{type :"slide",direction : "right"});
+		this.start = true;
+		this.startCarousel();
 	},
 	openMosaicPage:function(){
 		//this.getLandingPageView().add(Ext.create('Perzo.view.Mosaic'));
+		this.stopCarsousel();
 		this.getLandingPageView().animateActiveItem(3,{type :"slide",direction : "right"});
 
 	},
@@ -187,6 +203,8 @@ Ext.define('Perzo.controller.LandingPage',{
 					       else{
 					       	this.getMenuItemView().hide();
 					       	this.getLandingPageView().animateActiveItem(0,{type :"slide",direction : "left"});
+					       	this.start = true;
+							this.startCarousel();
 					       }
 					       	
 					   }

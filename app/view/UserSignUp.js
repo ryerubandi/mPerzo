@@ -121,7 +121,7 @@ Ext.define('Perzo.view.UserSignUp',{
         
                 ,{
 			xtype:'label',
-			html:'<div style="text-align: center;font-size: 10px;margin-bottom: 75px;"> By signing up, you agree to our Terms and Conditions & Privacy Policy </div>'
+			html:'<div style="text-align: center;font-size: 10px;margin-bottom: 55px;"> By signing up, you agree to our Terms and Conditions & Privacy Policy </div>'
 		},{
 			xtype:'button',
 			ui:'action',

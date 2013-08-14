@@ -3,7 +3,7 @@ Ext.define('Perzo.view.Mosaic',{
 	xtype:'mosaic',
 	
 	config:{
-		
+		styleHtmlContent:true,
 		layout:{
 			type:'vbox'
 		},

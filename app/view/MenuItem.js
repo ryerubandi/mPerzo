@@ -7,11 +7,12 @@ Ext.define('Perzo.view.MenuItem',{
         {   
             xtype: 'button',
             text: 'Mosaic',
+            action:'goToMosaicPage'
 
         },
         {
             xtype: 'button',
-            text: 'Seetings',
+            text: 'Settings',
         },
         {
             xtype: 'button',
@@ -20,6 +21,7 @@ Ext.define('Perzo.view.MenuItem',{
         {
             xtype: 'button',
             text: 'Log out',
+            action:'logout'
         }]
 	}
 });

@@ -1,11 +1,12 @@
+Ext.Loader.require(['Ext.util.DelayedTask','Perzo.view.MenuItem','Ext.MessageBox']);
 Ext.define('Perzo.controller.LandingPage',{
 	extend:'Ext.app.Controller',
 	init: function() { 
-
+			
 	},
 	config:{
 		requires:['Perzo.view.Main','Perzo.view.DisplaySignUp','Perzo.view.Login','Perzo.view.UserSignUp'
-		,'Perzo.view.Mosaic','Perzo.view.MenuItem','Perzo.view.Topics','Perzo.view.SlideNavigation'
+		,'Perzo.view.Mosaic',,'Perzo.view.Topics','Perzo.view.SlideNavigation'
 		,'Perzo.view.TopicsContainer'],
 		refs:{
 			landingPageView:'main',
@@ -22,18 +23,28 @@ Ext.define('Perzo.controller.LandingPage',{
 			'displaysignup button[action=signIn]':{
 				tap: 'gotoLoginPage'
 			},
-			'usersignup image[execute=goBackToLandingPage]':{
+			// 'usersignup image[execute=goBackToLandingPage]':{
+			// 	tap:'goBackToLandingPage'
+			// },
+			'usersignup button[execute=goBackToLandingPage]':{
 				tap:'goBackToLandingPage'
 			},
-			'login image[execute=goBackToLandingPage]':{
+			// 'login image[execute=goBackToLandingPage]':{
+			// 	tap:'goBackToLandingPage'
+			// },
+			'login button[execute=goBackToLandingPage]':{
 				tap:'goBackToLandingPage'
 			},
 			'login button[action=loggedIn]':{
 				tap:'openMosaicPage'
 			},
-			'perzocarousel image':{
-				showPreviousCard:'showPreviousCard',
-				showNextCard:'showNextCard'
+			// 'perzocarousel image':{
+			// 	//showPreviousCard:'showPreviousCard',
+			// 	//showNextCard:'showNextCard'
+			// },
+			'perzocarousel':{
+				//showPreviousCard:'showPreviousCard',
+				startRotating:'startCarousel'
 			},
 			'mosaic button[name=open-menu-items]':{
 				tap:'openMenuItems'	
@@ -52,12 +63,32 @@ Ext.define('Perzo.controller.LandingPage',{
 						this.openSlideNavigation();
 					}
 
+			},
+			'menuitem button[action=goToMosaicPage]':{
+					tap:'goToMosaicPage'
+			},
+			'menuitem button[action=logout]':{
+					tap:'doLogout'
 			}
 		},
 
 
 	},
-	
+	startCarousel:function(carousel){
+		this.startRotatingCarouselItems();
+	},
+	startRotatingCarouselItems:function(){
+		var view = this.getPerzoCarouselView();
+		Ext.create('Ext.util.DelayedTask',function() {
+                            if (view.getActiveIndex() == view.items.length - 1) {
+                                view.animateActiveItem(0, {duration:350, type:'slide', direction:'left'});
+                            }
+                            else {
+                                view.animateActiveItem((view.getActiveIndex()+1), {duration:350,type:'slide', direction:'left'});
+                            }
+                             this.startCarousel();
+                        },this).delay(4000);
+	},
 	gotoLoginPage:function(){
 		this.getLandingPageView().setActiveItem(1);
 	}
@@ -130,6 +161,36 @@ Ext.define('Perzo.controller.LandingPage',{
 			me.getTopicView().setMasked(true);
 		}
 
+	},
+	goToMosaicPage:function(){
+
+		if(Ext.getClassName(this.getLandingPageView().getActiveItem()).indexOf('Mosaic') > -1){
+					this.getMenuItemView().hide();
+		}else{
+				this.getMenuItemView().hide();
+				this.getLandingPageView().animateActiveItem(3,{type :"slide",direction : "left"});
+		}
+	},
+	doLogout:function(){
+		
+		Ext.Msg.show({
+					   title: 'Logout',
+					   message: 'Do you want to logout ?',
+					   buttons: Ext.MessageBox.YESNO,
+					   scope:this,
+					   fn: function(buttonId) {
+					       if(buttonId == 'no')
+					       {
+					       		this.getMenuItemView().hide();
+					       		return;
+					       }
+					       else{
+					       	this.getMenuItemView().hide();
+					       	this.getLandingPageView().animateActiveItem(0,{type :"slide",direction : "left"});
+					       }
+					       	
+					   }
+					});
 	}
 
 	

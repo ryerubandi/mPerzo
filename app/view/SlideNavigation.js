@@ -1,3 +1,4 @@
+Ext.Loader.require('Ext.data.Store');
 Ext.define('Perzo.view.SlideNavigation', {
 	extend: 'Ext.List',
 	xtype: 'slidenavigation',

@@ -18,7 +18,7 @@ Ext.Loader.setPath({
     'Ext': 'touch/src'
 });
 //</debug>
-
+Ext.Loader.require('Ext.data.Store');
 Ext.application({
     name: 'Perzo',
 
@@ -49,6 +49,7 @@ Ext.application({
     },
 
     launch: function() {
+        
         // Destroy the #appLoadingIndicator element
         Ext.fly('appLoadingIndicator').destroy();
 

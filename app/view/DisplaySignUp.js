@@ -23,7 +23,7 @@ Ext.define('Perzo.view.DisplaySignUp',{
 			xtype:'button',
 			cls:'perzo-appstore',
 			height:'40px',
-			// style:'background-color: #76797c;'
+			//style:'background-color: #666262 !important;background-image: none !important;',
 			icon:'./resources/customImages/appstore.png',
 			iconAlign:'center '
 		},{

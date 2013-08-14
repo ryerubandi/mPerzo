@@ -1,9 +1,9 @@
+Ext.Loader.require(['Ext.TitleBar']);
 Ext.define('Perzo.view.Topics',{
 	extend:'Ext.Container',
 	xtype:'topics',
-	require:['Ext.field.Text','Ext.Toolbar','Ext.TitleBar'],
 	config:{
-		
+		styleHtmlContent:true,
 		layout:{
 			type:'vbox'
 		},

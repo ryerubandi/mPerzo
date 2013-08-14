@@ -1,12 +1,21 @@
+
+Ext.Loader.require('Ext.Img');
 Ext.define('Perzo.view.Carousel',{
-	extend:'Ext.Container',
+	extend:'Ext.carousel.Carousel',
 	xtype:'perzocarousel',
 	config:{
 		flex:1,
 		indicator:false,
+	    direction: 'horizontal',
+        listeners:
+                {
+                    'initialize': function(carousel) {
+                       this.fireEvent('startRotating',carousel);
+                     }
+                },       
 		layout:{
 			type:'card',
-			animation:{type :"slide",direction : "right"}
+			//animation:{type :"slide",direction : "right"}
 		},
 		defaults:{
 			xtype:'container',

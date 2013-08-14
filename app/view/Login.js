@@ -1,9 +1,11 @@
+Ext.Loader.require(['Ext.field.Password','Ext.Toolbar']);
 Ext.define('Perzo.view.Login',{
 	extend:'Ext.form.Panel',
 	xtype:'login',
 
 	config:{
-		
+		scrollable:false,
+		styleHtmlContent:true,
 		cls:'perzo-loginpage',
 		
 		defaults:{
@@ -16,27 +18,37 @@ Ext.define('Perzo.view.Login',{
             docked: 'top',
             layout:'hbox',
             items:[{
-            	xtype:'image',
-            	src:'./resources/customImages/backbutton.png',
-            	style:{
-	            			'top': '12px',
-							'position': 'absolute',
-							'height': '21px',
-							'width': '51px'
+       //      	xtype:'image',
+       //      	src:'./resources/customImages/backbutton.png',
+       //      	style:{
+	      //       			'top': '12px',
+							// 'position': 'absolute',
+							// 'height': '21px',
+							// 'width': '51px'
 							
 
-            	},
+       //      	},
+       			
+       			iconCls:'arrow_left',
+       			ui:'back',
             	execute:'goBackToLandingPage'
             }
             ,{
             	xtype:'image',
             	src:'./resources/customImages/logo.png',
-            	style:{
+      //       	style:{
             		    
-					   'top': '10px',
-						'height': '30px',
-						'width': '80%',
-						'left': '45px'
+					 //   'top': '10px',
+						// 'height': '30px',
+						// 'width': '80%',
+						// 'left': '45px'
+      //       	}
+      				style:{
+            		    
+					    'top': '10px',
+						 'height': '30px',
+						 'width': '70%'
+						 
             	}
             }
             ]
@@ -75,12 +87,14 @@ Ext.define('Perzo.view.Login',{
                     name : 'email',
                     label: 'Email',
                     placeHolder:'Email',
+                    style:'font-size: 15px;'
                 },
                 {
                    xtype:'passwordfield',
                     name : 'Password',
                     label: 'password',
                     placeHolder:'Choose a Password',
+                    style:'font-size: 15px;'
                 }
         
                 ,{

@@ -1,8 +1,10 @@
+Ext.Loader.require('Ext.field.Text');
 Ext.define('Perzo.view.UserSignUp',{
 	extend:'Ext.form.Panel',
 	xtype:'usersignup',
 	config:{
-
+		scrollable:false,
+		styleHtmlContent:true,
 		cls:'perzo-loginpage',
 		
 		defaults:{
@@ -15,29 +17,38 @@ Ext.define('Perzo.view.UserSignUp',{
             docked: 'top',
             layout:'hbox',
             items:[{
-            	xtype:'image',
-            	src:'./resources/customImages/backbutton.png',
-            	style:{
-	            			'top': '12px',
-							'position': 'absolute',
-							'height': '21px',
-							'width': '51px'
+       //      	xtype:'image',
+       //      	src:'./resources/customImages/backbutton.png',
+       //      	style:{
+	      //       			'top': '12px',
+							// 'position': 'absolute',
+							// 'height': '21px',
+							// 'width': '51px'
 							
 
-            	},
+       //      	},
+       			iconCls:'arrow_left',
+       			ui:'back',
             	execute:'goBackToLandingPage'
             	
             }
             ,{
             	xtype:'image',
             	src:'./resources/customImages/logo.png',
-            	style:{
+      //       	style:{
+            		    
+					 //    'top': '10px',
+						// 'height': '30px',
+						// 'width': '80%',
+						// 'left': '45px'
+						
+      //       	}
+      	style:{
             		    
 					    'top': '10px',
-						'height': '30px',
-						'width': '80%',
-						'left': '45px'
-						
+						 'height': '30px',
+						 'width': '70%'
+						 
             	}
             }
             ]
@@ -98,22 +109,24 @@ Ext.define('Perzo.view.UserSignUp',{
                     name : 'email',
                     label: 'Email',
                    	placeHolder:'Email',
+                   	style:'font-size: 15px;'
                 },
                 {
                    xtype:'passwordfield',
                     name : 'Password',
                     label: 'password',
                     placeHolder:'Choose a Password',
+                    style:'font-size: 15px;'
                 }
         
                 ,{
 			xtype:'label',
-			html:'<div style="text-align: center;font-size: 10px;"> By signing up, you agree to our Terms and Conditions & Privacy Policy </div>'
+			html:'<div style="text-align: center;font-size: 10px;margin-bottom: 75px;"> By signing up, you agree to our Terms and Conditions & Privacy Policy </div>'
 		},{
 			xtype:'button',
 			ui:'action',
-			text:'Sign up',
-			cls:'perzo-signup-signup-btn'
+			text:'Sign up'
+			//cls:'perzo-signup-signup-btn'
 		}
             ]
 	}

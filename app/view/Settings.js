@@ -80,7 +80,7 @@ Ext.define('Perzo.view.Settings',{
                         this.element.on({
                             swipe: function(e, node, options) {
                                
-                                var docArr = ['a','b','c'],m ax = 2;
+                                var docArr = ['a','b','c'], max = 2;
                                 var current = Ext.getCmp('setting-carousel-items') .getActiveIndex();
                                
                                  if(e.direction == "left") {

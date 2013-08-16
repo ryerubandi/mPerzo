@@ -9,12 +9,14 @@ Ext.define('Perzo.controller.LandingPage',{
 		
 		requires:['Perzo.view.Main','Perzo.view.DisplaySignUp','Perzo.view.Login','Perzo.view.UserSignUp'
 		,'Perzo.view.Mosaic',,'Perzo.view.Topics','Perzo.view.SlideNavigation'
-		,'Perzo.view.TopicsContainer'],
+		,'Perzo.view.TopicsContainer','Perzo.view.Settings'],
 		refs:{
 			landingPageView:'main',
 			perzoCarouselView:'perzocarousel',
 			menuItemView :'menuitem',
-			topicView:'topics'
+			topicView:'topics',
+			settingView:'settings'
+			
 		},
 
 		control:{
@@ -54,6 +56,9 @@ Ext.define('Perzo.controller.LandingPage',{
 			'topics button[name=open-menu-items]':{
 				tap:'openMenuItems'	
 			},
+			'settings button[name=open-menu-items]':{
+				tap:'openMenuItems'	
+			},
 			'mosaic list':{
 				itemtap:'showMosaicDetails'
 			},
@@ -71,7 +76,11 @@ Ext.define('Perzo.controller.LandingPage',{
 			},
 			'menuitem button[action=logout]':{
 					tap:'doLogout'
+			},
+			'menuitem button[action=goToSettingsPage]':{
+					tap:'goToSettingsPage'
 			}
+			
 		},
 
 
@@ -209,6 +218,10 @@ Ext.define('Perzo.controller.LandingPage',{
 					       	
 					   }
 					});
+	},
+	goToSettingsPage:function(){
+		this.getMenuItemView().hide();
+		this.getLandingPageView().animateActiveItem(5,{type :"slide",direction : "left"});
 	}
 
 	

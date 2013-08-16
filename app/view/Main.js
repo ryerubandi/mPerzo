@@ -2,7 +2,7 @@ Ext.define('Perzo.view.Main', {
     extend: 'Ext.Container',
     xtype: 'main',
     requires: ['Perzo.view.Carousel','Perzo.view.DisplaySignUp','Perzo.view.Login','Perzo.view.UserSignUp'
-    ,'Perzo.view.Mosaic','Perzo.view.TopicsContainer'],
+    ,'Perzo.view.Mosaic','Perzo.view.TopicsContainer','Perzo.view.Settings'],
     config: {
 
         layout:{
@@ -27,6 +27,8 @@ Ext.define('Perzo.view.Main', {
                     xtype:'mosaic'
                 },{
                     xtype:'topicscontainer'
+                },{
+                    xtype:'settings'
                 }                  
 
                 ]

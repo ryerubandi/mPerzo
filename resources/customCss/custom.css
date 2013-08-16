@@ -525,3 +525,45 @@ width: 85%;
 	top:12px;
 	line-height: 0em;
 }
+
+.header-container{
+	
+	background-color: #363636;
+	border-bottom: 1px solid #808080;
+	 height:45px;
+}
+
+.header-container > div > div{
+	text-align: center;
+color: #FFF;
+font-size: 13px;
+line-height: 40px;
+}
+
+.each-container-active{
+	border-bottom: 2px solid #FFF;
+}
+.each-container{ 
+	
+}
+.rectangeTextField{
+	min-height: 1.8em;
+margin-bottom: 5px;
+}
+.inputClass{
+
+min-height: 1.5em;
+text-align: center;
+font-size: 15px;
+background-color: #2C2626;
+color: #FFF;
+}
+.rectangeTextField > div.x-component-outer{
+	background-color: #2C2626;
+}
+.profilesetting-label{
+font-size: 15px;
+color: #808080;
+text-align: center;
+margin-bottom: 10px;	
+}

@@ -13,6 +13,7 @@ Ext.define('Perzo.view.MenuItem',{
         {
             xtype: 'button',
             text: 'Settings',
+            action:'goToSettingsPage'
         },
         {
             xtype: 'button',

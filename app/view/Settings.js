@@ -60,10 +60,10 @@ Ext.define('Perzo.view.Settings',{
         },
          {
             xtype:'carousel',
-            docArr : ['a','b','c'], current : 0,prev : 0, max : 2,
             id:'setting-carousel-items',
             direction:'horizontal',
             indicator:false,
+            activeItem:0,
             flex:1,
             items:[{
                     layout:'fit',
@@ -81,7 +81,7 @@ Ext.define('Perzo.view.Settings',{
                             swipe: function(e, node, options) {
                                
                                 var docArr = ['a','b','c'], max = 2;
-                                var current = Ext.getCmp('setting-carousel-items') .getActiveIndex();
+                                var current = Ext.getCmp('setting-carousel-items').getActiveIndex();
                                
                                  if(e.direction == "left") {
                                      if(current == max)

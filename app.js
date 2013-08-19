@@ -22,7 +22,7 @@ Ext.Loader.require('Ext.data.Store');
 Ext.application({
     name: 'Perzo',
 
-   requires:['Ext.device.Connection','Ext.device.Geolocation'],
+   
     views: [
         'Main','TopicsContainer','Topics','SlideNavigation','Mosaic'
     ],

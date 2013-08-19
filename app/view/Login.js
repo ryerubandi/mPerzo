@@ -83,15 +83,21 @@ Ext.define('Perzo.view.Login',{
 					xtype:'label',
 					html:'<div style="text-align: center;margin-bottom: 15px;"> Log In</div>'
 				},
+				{
+					xtype:'label',
+					itemId:'login-err-lbl',
+					html:'<div id="login-err-lbl" class="display-error"> </div>'
+				},
 		        {
+                    xtype: 'emailfield',
                     name : 'email',
                     label: 'Email',
                     placeHolder:'Email',
                     style:'font-size: 15px;'
                 },
                 {
-                   xtype:'passwordfield',
-                    name : 'Password',
+                    xtype:'passwordfield',
+                    name : 'password',
                     label: 'password',
                     placeHolder:'Choose a Password',
                     style:'font-size: 15px;'

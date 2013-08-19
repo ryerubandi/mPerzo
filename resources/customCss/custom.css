@@ -87,12 +87,12 @@
 	text-align: center;
 	margin-top: 10px;
 	font-size: 11px;
-	
+	text-decoration: underline;
 }
 .perzo-signup-signup-btn{
-position: absolute;
-bottom: 20px;
-width: 85%;
+	position: absolute;
+	bottom: 20px;
+	width: 85%;
 }
 .perzo-signup-footer{
 	position: absolute;
@@ -154,7 +154,7 @@ width: 85%;
 .perzo-loginpage .x-field {
 	margin-bottom: 10px;
 	border: 1px solid gray;
-	border-radius: 15px;
+	border-radius: 10px;
 
 }
 
@@ -281,6 +281,8 @@ width: 85%;
 	height: 88px;
 	float: left;
 	width: 30%;
+	border-radius: 7px;
+border: 2px solid #55CE55;
 }
 .mosaic-each-item-container{
 	float: right;
@@ -521,108 +523,117 @@ width: 85%;
 		min-width: 12em;
 	}
 
-.x-toolbar .x-button .x-button-icon:before {
-	top:12px;
-	line-height: 0em;
-}
+	.x-toolbar .x-button .x-button-icon:before {
+		top:12px;
+		line-height: 0em;
+	}
 
-.header-container{
-	
-	background-color: #363636;
-	border-bottom: 1px solid #808080;
-	 height:45px;
-}
+	.header-container{
 
-.header-container > div > div{
-	text-align: center;
-color: #FFF;
-font-size: 13px;
-line-height: 40px;
-}
+		background-color: #363636;
+		border-bottom: 1px solid #808080;
+		height:45px;
+	}
 
-.each-container-active{
-	border-bottom: 2px solid #FFF;
-}
-.each-container{ 
-	
-}
-.rectangeTextField{
-	min-height: 1.8em;
+	.header-container > div > div{
+		text-align: center;
+		color: #FFF;
+		font-size: 13px;
+		line-height: 40px;
+	}
+
+	.each-container-active{
+		border-bottom: 2px solid #FFF;
+	}
+	.each-container{ 
+
+	}
+	.rectangeTextField{
+		min-height: 1.8em;
+		margin-bottom: 5px;
+	}
+	.inputClass{
+
+		min-height: 1.5em;
+		text-align: center;
+		font-size: 15px;
+		background-color: #2C2626;
+		color: #FFF;
+	}
+	.rectangeTextField > div.x-component-outer{
+		background-color: #2C2626;
+	}
+	.profilesetting-label{
+		font-size: 15px;
+		color: #808080;
+		text-align: center;
+		margin-bottom: 10px;	
+	}
+
+	.topics-profile-container{
+		height: 100%;
+		background-size: cover;
+		background-image: url(../customImages/bg_landing1.png);
+		background-repeat: no-repeat;
+	}
+	.topic-profile-single-div{
+		height: 50%;
+		border-bottom: 1px solid #161313;
+	}
+
+	div.x-innerhtml{
+		height:100%;
+	}
+
+	.topics-profile-lastActivity{
+		position: absolute;
+		top: 0;
+		filter: alpha(opacity=50);
+		opacity: 0.9;
+		background-color: rgba(10, 0, 0, 0.45);
+		color: #FFF;
+		font-size: 10px;
+		width: 105px;
+		height: 20px;
+	}
+
+	.topics-profile-metadata{
+		width: 125px;
+		height: 50px;
+		position: absolute;
+		bottom: 0;
+		filter: alpha(opacity=50);
+		opacity: 0.9;
+		background-color: rgba(10, 0, 0, 0.45);
+		padding-left: 10px;
+	}
+	.topic-profile-status{
+		height: 20px;
+		color: #FFF;
+	}
+
+	.topic-profile-location{
+		height: 14px;
+		color: #FFF;
+		font-size: 10px;
+	}
+
+	.topic-profile-temperature{
+		height: 14px;
+		color: #FFF;
+		font-size: 10px;
+	}
+	.topic-profile-weather-status{
+		width: 25px;
+		height: 25px;
+		float: left;
+		margin: 3px;
+	}
+
+	.display-error{
+		text-align: center;
 margin-bottom: 5px;
-}
-.inputClass{
-
-min-height: 1.5em;
-text-align: center;
-font-size: 15px;
-background-color: #2C2626;
-color: #FFF;
-}
-.rectangeTextField > div.x-component-outer{
-	background-color: #2C2626;
-}
-.profilesetting-label{
-font-size: 15px;
-color: #808080;
-text-align: center;
-margin-bottom: 10px;	
-}
-
-.topics-profile-container{
-	height: 100%;
-	background-size: cover;
-background-image: url(../customImages/bg_landing1.png);
-background-repeat: no-repeat;
-}
-.topic-profile-single-div{
-	height: 50%;
-border-bottom: 1px solid #161313;
-}
-
-div.x-innerhtml{
-	height:100%;
-}
-
-.topics-profile-lastActivity{
-	position: absolute;
-top: 0;
-filter: alpha(opacity=50);
-	opacity: 0.9;
-	background-color: rgba(10, 0, 0, 0.45);
-	color: #FFF;
-font-size: 10px;
-width: 105px;
-height: 20px;
-}
-
-.topics-profile-metadata{
-width: 125px;
-height: 50px;
-position: absolute;
-bottom: 0;
-filter: alpha(opacity=50);
-opacity: 0.9;
-background-color: rgba(10, 0, 0, 0.45);
-}
-.topic-profile-status{
-	height: 20px;
-color: #FFF;
-}
-
-.topic-profile-location{
-	height: 14px;
-color: #FFF;
-font-size: 10px;
-}
-
-.topic-profile-temperature{
-	height: 14px;
-color: #FFF;
-font-size: 10px;
-}
-.topic-profile-weather-status{
-	width: 25px;
-height: 25px;
-float: left;
-margin: 3px;
-}
+color: #F00;
+height: 15px;
+font-size: 12px;
+	}

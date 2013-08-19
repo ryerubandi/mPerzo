@@ -105,15 +105,15 @@ Ext.define('Perzo.view.UserSignUp',{
 					cls:'orCls',
 					html:'<div><span></span><span>or</span><span></span></div>'
 				},
-		        {
+		        {	xtype: 'emailfield',
                     name : 'email',
                     label: 'Email',
                    	placeHolder:'Email',
                    	style:'font-size: 15px;'
                 },
                 {
-                   xtype:'passwordfield',
-                    name : 'Password',
+                    xtype:'passwordfield',
+                    name : 'password',
                     label: 'password',
                     placeHolder:'Choose a Password',
                     style:'font-size: 15px;'
@@ -121,7 +121,7 @@ Ext.define('Perzo.view.UserSignUp',{
         
                 ,{
 			xtype:'label',
-			html:'<div style="text-align: center;font-size: 10px;margin-bottom: 55px;"> By signing up, you agree to our Terms and Conditions & Privacy Policy </div>'
+			html:'<div style="text-align: center;font-size: 10px;margin-bottom: 55px;"> By signing up, you agree to our <font color="#185E93">Terms and Conditions</font> & <font color="#185E93">Privacy Policy </font></div>'
 		},{
 			xtype:'button',
 			ui:'action',

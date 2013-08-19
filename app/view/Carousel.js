@@ -7,6 +7,7 @@ Ext.define('Perzo.view.Carousel',{
 		flex:1,
 		indicator:false,
 	    direction: 'horizontal',
+	    
         listeners:
                 {
                     'initialize': function(carousel) {

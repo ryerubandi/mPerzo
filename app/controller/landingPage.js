@@ -2,6 +2,7 @@ Ext.Loader.require(['Ext.util.DelayedTask','Perzo.view.MenuItem','Ext.MessageBox
 Ext.define('Perzo.controller.LandingPage',{
 	extend:'Ext.app.Controller',
 	start:true,
+	loggedIn:false,
 	init: function() { 
 			
 	},
@@ -18,7 +19,15 @@ Ext.define('Perzo.controller.LandingPage',{
 			settingView:'settings'
 			
 		},
-
+		 routes: {
+            '': 'gotoLandingPage',
+            'container':'gotoLandingPage',
+            'usersignup':'gotoSignupPage',
+            'login':'gotoLoginPage',
+            'mosaic':'openMosaicPage',
+            'topicscontainer':'gotoTopicsContainer',
+            'settings':'gotoSettingsPage'
+        },
 		control:{
 
 			'displaysignup button[action=userAccountCreation]':{
@@ -40,7 +49,7 @@ Ext.define('Perzo.controller.LandingPage',{
 				tap:'goBackToLandingPage'
 			},
 			'login button[action=loggedIn]':{
-				tap:'openMosaicPage'
+				tap:'validateUser'
 			},
 			// 'perzocarousel image':{
 			// 	//showPreviousCard:'showPreviousCard',
@@ -79,11 +88,35 @@ Ext.define('Perzo.controller.LandingPage',{
 			},
 			'menuitem button[action=goToSettingsPage]':{
 					tap:'goToSettingsPage'
-			}
+			},
+
+			'main':{
+				
+                    activeitemchange: function(container, newCard, oldCard,e){ 
+                        this.getApplication().getHistory().add(new Ext.app.Action({
+                        url: newCard.config.xtype
+                    }), true);
+                    }
+                
+			},
+			// '#setting-carousel-items':{
+			// 	activeitemchange:function(container,newCard,oldCard,e){
+			// 		this.getApplication().getHistory().add(new Ext.app.Action({
+			// 			url:'settings/'+newCard.config.xtype
+			// 		}),true);
+			// 	}
+			// }
+   
 			
 		},
 
 
+	},
+	gotoLandingPage:function(){
+		this.getLandingPageView().setActiveItem(0);
+		this.getApplication().getHistory().add(new Ext.app.Action({
+			url:'container'
+		}),true);
 	},
 	stopCarsousel:function(){
 		this.start = false;
@@ -125,10 +158,34 @@ Ext.define('Perzo.controller.LandingPage',{
 		this.start = true;
 		this.startCarousel();
 	},
+	validateUser:function(btn){
+			var email = Ext.util.Format.trim(btn.up('panel[xtype=login]').down('emailfield[name=email]').getValue());
+			var password = Ext.util.Format.trim(btn.up('panel[xtype=login]').down('passwordfield[name=password]').getValue());
+			if((email =='' || email == null) || (password =='' || password==null))
+				{
+					//Ext.ComponentQuery.query('label[itemId=login-err-lbl]')[0].element.dom.innerText='Please provide email and password';
+
+					document.getElementById('login-err-lbl').innerHTML= 'Please provide email and password';
+					//Ext.Msg.alert('Error!','Please provide input data');
+				}
+			else
+				{
+					//Ext.ComponentQuery.query('label[itemId=login-err-lbl]')[0].element.dom.innerText='';
+					document.getElementById('login-err-lbl').innerHTML= '';
+					this.loggedIn = true;
+					this.openMosaicPage();
+				}
+	},
 	openMosaicPage:function(){
-		//this.getLandingPageView().add(Ext.create('Perzo.view.Mosaic'));
-		this.stopCarsousel();
+		if(this.loggedIn == true){
+			this.stopCarsousel();
 		this.getLandingPageView().animateActiveItem(3,{type :"slide",direction : "right"});
+		}
+			else{
+				this.gotoLoginPage();
+			}
+		//this.getLandingPageView().add(Ext.create('Perzo.view.Mosaic'));
+		
 
 	},
 	showNextCard:function(btn,currentCardNo){
@@ -211,6 +268,7 @@ Ext.define('Perzo.controller.LandingPage',{
 					       }
 					       else{
 					       	this.getMenuItemView().hide();
+					       	this.loggedIn = false;
 					       	this.getLandingPageView().animateActiveItem(0,{type :"slide",direction : "left"});
 					       	this.start = true;
 							this.startCarousel();

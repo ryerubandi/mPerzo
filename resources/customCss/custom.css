@@ -567,3 +567,62 @@ color: #808080;
 text-align: center;
 margin-bottom: 10px;	
 }
+
+.topics-profile-container{
+	height: 100%;
+	background-size: cover;
+background-image: url(../customImages/bg_landing1.png);
+background-repeat: no-repeat;
+}
+.topic-profile-single-div{
+	height: 50%;
+border-bottom: 1px solid #161313;
+}
+
+div.x-innerhtml{
+	height:100%;
+}
+
+.topics-profile-lastActivity{
+	position: absolute;
+top: 0;
+filter: alpha(opacity=50);
+	opacity: 0.9;
+	background-color: rgba(10, 0, 0, 0.45);
+	color: #FFF;
+font-size: 10px;
+width: 105px;
+height: 20px;
+}
+
+.topics-profile-metadata{
+width: 125px;
+height: 50px;
+position: absolute;
+bottom: 0;
+filter: alpha(opacity=50);
+opacity: 0.9;
+background-color: rgba(10, 0, 0, 0.45);
+}
+.topic-profile-status{
+	height: 20px;
+color: #FFF;
+}
+
+.topic-profile-location{
+	height: 14px;
+color: #FFF;
+font-size: 10px;
+}
+
+.topic-profile-temperature{
+	height: 14px;
+color: #FFF;
+font-size: 10px;
+}
+.topic-profile-weather-status{
+	width: 25px;
+height: 25px;
+float: left;
+margin: 3px;
+}

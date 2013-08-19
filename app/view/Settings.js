@@ -76,33 +76,16 @@ Ext.define('Perzo.view.Settings',{
                  xtype:'preferencessetting'
             }],
             listeners: {
-                    initialize: function(c) {
-                        this.element.on({
-                            swipe: function(e, node, options) {
-                               
-                                var docArr = ['a','b','c'], max = 2;
-                                var current = Ext.getCmp('setting-carousel-items').getActiveIndex();
-                               
-                                 if(e.direction == "left") {
-                                     if(current == max)
-                                         return false;
-                                     else{
-                                        Ext.getCmp(docArr[current]).replaceCls('each-container-active','each-container')
-                                        Ext.getCmp(docArr[current+1]).replaceCls('each-container','each-container-active')
+                    activeitemchange: function(container, newCard, oldCard,e){ 
+                      if(container.rendered){ 
+                                var docArr = ['a','b','c'];
+                                var itemIdArr = ['ext-accountsettings-1','ext-profilesetting-1','ext-preferencessetting-1'];
+                                
+                                Ext.getCmp(docArr[itemIdArr.indexOf(oldCard._itemId)]).replaceCls('each-container-active','each-container')
+                                Ext.getCmp(docArr[itemIdArr.indexOf(newCard._itemId)]).replaceCls('each-container','each-container-active')
 
-                                     }
-                                  }
-                                   else 
-                                    {
-                                        if(current == 0)
-                                            return false;
-                                        else{
-                                            Ext.getCmp(docArr[current]).replaceCls('each-container-active','each-container')
-                                            Ext.getCmp(docArr[current-1]).replaceCls('each-container','each-container-active')
-                                        }
-                                         
-                                 }}
-                        });
+                                   
+                       } 
                     }
             } 
          }   

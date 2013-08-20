@@ -1,8 +1,8 @@
+Ext.Loader.require(['Perzo.view.SlideNavigation','Perzo.view.Topics']);
 Ext.define('Perzo.view.TopicsContainer',{
 	extend:'Ext.Container',
 	xtype:'topicscontainer',
 	config:{
-		require:['Perzo.view.Topics','Perzo.view.SlideNavigation'],
 		layout:'hbox',
 		fullscreen: true,
 		items:[{

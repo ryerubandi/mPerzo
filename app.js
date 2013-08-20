@@ -21,15 +21,11 @@ Ext.Loader.setPath({
 Ext.Loader.require('Ext.data.Store');
 Ext.application({
     name: 'Perzo',
-
-   
-    views: [
-        'Main','TopicsContainer','Topics','SlideNavigation','Mosaic'
-    ],
-      controllers: [
+    controllers: [
         'LandingPage'
     ],
 
+    views:['Perzo.view.Main'],
     icon: {
         '57': 'resources/icons/Icon.png',
         '72': 'resources/icons/Icon~ipad.png',
@@ -49,11 +45,7 @@ Ext.application({
     },
 
     launch: function() {
-        
-        // Destroy the #appLoadingIndicator element
         Ext.fly('appLoadingIndicator').destroy();
-
-        // Initialize the main view
         Ext.Viewport.add(Ext.create('Perzo.view.Main'));
     },
 

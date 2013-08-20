@@ -1,3 +1,4 @@
+Ext.Loader.require(['Ext.TitleBar']);
 Ext.define('Perzo.view.Mosaic',{
 	extend:'Ext.Container',
 	xtype:'mosaic',

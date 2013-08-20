@@ -1,4 +1,4 @@
-Ext.Loader.require(['Ext.field.Password','Ext.Toolbar']);
+Ext.Loader.require(['Ext.field.Password','Ext.field.Email','Ext.Toolbar']);
 Ext.define('Perzo.view.Login',{
 	extend:'Ext.form.Panel',
 	xtype:'login',
